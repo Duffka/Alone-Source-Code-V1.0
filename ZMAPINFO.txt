@@ -1,0 +1,150 @@
+gameinfo {
+dimcolor = "green"
+titlepage = "TITLEPIC"
+titlemusic = "D_INTRO"
+quitmessages = "in this genaraion, bots just keep poping up, SO GET BACK OUT THERE","quiting is for bunny's! wait...","tommy anti-quiter blocked you. mabey...","clasic players","i swear to mighty","i can see you hovering over that yes button, DONT YOU FRICKING DARE","QWQ"
+skyflatname = "F_SKY1"
+menubackbutton = "TOM_BCK"
+IntermissionMusic = "D_INTER"
+playerclasses = "TOMMY"
+}
+
+GameDefaults {
+
+   Music = "nullmus"
+   SmoothLighting
+   OldFallingDamage
+   MonsterFallingDamage
+}
+//episodes
+
+clearepisodes
+
+episode Z1A1 {
+name = "EPISODE 1: prologue(ZONE 1)"
+}
+
+episode PENDING {
+name = "EPISODE 2: PENDING (ZONE 2)"
+}
+
+episode PENDING2 {
+name = "EPISODE 3: PENDING2 (ZONE 3)"
+}
+
+
+//skills
+
+clearskills
+
+skill WL {
+name = "worthless"
+ammofactor = 2.0
+spawnfilter = baby
+mustconfirm = "i swear..."
+textcolor = green
+}
+
+skill DHM {
+name = "dont hurt me!"
+spawnfilter = esay
+}
+
+skill BU {
+name = "back from tantanga?"
+spawnfilter = normal
+}
+
+skill ON {
+name = "oh no.."
+spawnfilter = hard
+}
+
+skill RT {
+name = "HOLY CRAP"
+spawnfilter = nightmare
+textcolor = red
+mustconfirm = "my boy, this will be so hard i bet you are going to cry in a cornor playing this",
+}
+
+//maps
+
+map TITLEMAP "Title Screen" {
+sky1 = "TOMS1"
+sky2 = "TOMS2"
+music = "D_INTRO"
+}
+
+map Z1A1 "Landing Port 395248" {
+music = "D_Z1A1"
+sky1 = "TOMS2"
+sky2 = "TOMS2"
+next = Z1A2
+}
+
+Map Z1A2 "Entry Way" {
+sky1 = "TOMS1"
+Next = "Z1A3"
+Music = "D_Z1A2"
+}
+
+map debug "LMAO" {
+
+  name = "Diddly Widdly"
+  music = "untitled"
+
+
+}
+
+map Z1A3 "Water In Space" {
+
+   Music = "D_Z1A3"
+   sky1 = "TOMS2"
+   Next = "Z1A4"
+
+}
+
+
+map Z3A10 "Where its released" {
+
+   Name = "The Creation's Realease Area"
+   Music = "D_E3M8"
+   sky1 = "TOMS1"
+
+}
+
+map Z1A4 "Under Water Power Plant" {
+
+   SKY1 = "FWATER1"
+   next = "Z1A5"
+
+}
+
+map Z1A5 "Computer Lab" {
+
+   SKY1 = "FWATER1"
+
+}
+
+
+Cluster 1 {
+  Music = "TNX4P"
+  exittext =
+  "You did it.",
+  "You realy did it.",
+  "says a voice",
+  "",
+  "??",
+  "you think",
+  "good job, now prepare for more",
+  "",
+  "",
+  "Thank you for playing episode 1. Episode 2 is in the works",
+  "Credits:",
+  "Modeling: The internet, 8BITDEV",
+  "Programing: Tucky_Monster(and wl041204 for helping me with stuff i",
+  "dont know)",
+  "Sound/Textures: ZakTheGangBoi, Freedoom, The internet, wl041204",
+  "And you. For playing!"
+
+}

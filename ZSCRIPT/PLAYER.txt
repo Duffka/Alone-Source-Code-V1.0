@@ -1,0 +1,59 @@
+
+/*
+WhaT TEh fuCGF heLL
+this has been the moste hardest thing i EVER scripted. GOD
+this was a pain in the ass to get.
+use this if you need to. just mess with it for your own stuff.
+*/
+CLASS TOMMY : PlayerPawn
+{
+    DEFAULT {
+	  
+	  Health 100;
+	  Height 56;
+	  speed 1.3;
+	  Player.JumpZ 9.38083152;
+      player.weaponslot 1, "Fist", "magnum", "magnums", "Flashlight";
+      player.weaponslot 2, "Uzi", "Uzis";
+      player.weaponslot 3, "TSHOTGUN";
+	  player.weaponslot 4, "RocketLauncherT";
+	  
+	  player.startitem "Clip", 20;
+	  Player.StartItem "Flashlight";
+	  
+	  	Mass 100;
+		Player.SoundClass "Tommy";
+		Player.DisplayName "Tommy";
+
+	}
+	
+	States {
+	Spawn:
+	PLAY A -1;
+	Loop;
+	
+	See:
+		PLAY A 4;
+		Loop;
+	Missile:
+		PLAY B 8;
+		Goto Spawn;
+	Melee:
+		PLAY B 8;
+		Goto Missile;
+	Pain:
+		PLAY D 4;
+		PLAY D 4 A_Pain;
+		Goto Spawn;
+	Death:
+	    PLAY E -1 A_PlayerScream;
+		PLAY EFG 2;
+		PLAY G -1;
+		STOP;
+	XDeath:
+		PLAY E 2 A_PlayerScream;
+		PLAY E -1;
+		STOP;
+	}
+}
+

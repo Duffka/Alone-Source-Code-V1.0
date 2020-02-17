@@ -1,0 +1,47 @@
+CLASS ROBOT : ACTOR
+{
+  Default
+  {
+    Monster;
+    Health 100;
+    Radius 20;
+    Radius 20;
+    Speed 8;
+    FastSpeed 16;
+    MaxStepHeight 16;
+    Mass 1000;
+    PainChance 64;
+
+    +NEVERRESPAWN;
+    +NOINFIGHTING;
+
+    MaxTargetRange 2048;
+  }
+
+}
+
+
+CLASS aloneMONSTER : ACTOR 
+{
+
+   Default
+   {
+     Monster;
+	 Health 100;
+	 Radius 15;
+	 Speed 12;
+	 FastSpeed 16;
+     MaxStepHeight 16;
+     Mass 995;
+     PainChance 54;
+	 
+	 +NEVERRESPAWN;
+     +NOINFIGHTING;
+	 
+	 MaxTargetRange 2043;
+	 
+	 }
+}
+
+
+

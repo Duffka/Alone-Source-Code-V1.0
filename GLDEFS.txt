@@ -1,0 +1,18 @@
+/*
+will use later. goign here for now
+
+//??? dont know if i will use this
+
+ACOMMON
+*/
+
+pointlight FLASHLIGHT
+{
+    color 1.0 1.0 1.0
+    size 48
+}
+
+object FlashLightFlare
+{
+    frame tnt1a0 { light FLASHLIGHT }
+}

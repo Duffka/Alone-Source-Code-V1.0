@@ -1,0 +1,11 @@
+Weapons/firemgn	      MAGNFRE
+Weapons/fireshotg     SHGFRE
+Mis/SECRET        SECRET
+
+
+$random Weapons/UziFire { WEAPONS/UZIFIRE1  WEAPONS/UZIFIRE2}
+
+
+WEAPONS/UZIFIRE1      UZIFIRE1
+
+WEAPONS/UZIFIRE2     UZIFIRE2

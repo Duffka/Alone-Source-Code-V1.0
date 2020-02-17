@@ -1,0 +1,133 @@
+defaultlistmenu {
+font "bigfont", "Untranslated"
+linespacing 18
+}
+
+LISTMENU "MainMenu"
+{
+	StaticPatch 40, -55, "TBLOGO"
+	Position 90, 76
+		
+	TextItem "Get Boting",  "n",	"PlayerclassMenu"
+	TextItem "Options",	     "o",	"OptionsMenuAlone"
+	TextItem "Load",         "l",	"LoadGameMenu"
+	TextItem "Save",         "s",	"SaveGameMenu"
+	TextItem "Shutdown.",	 "q",	"QuitMenu"
+}
+
+
+ListMenu "PlayerclassMenu"
+{
+	NetgameMessage "$NEWGAME"
+	
+	StaticTextCentered 160, 15, "$MNU_CHOOSECLASS"
+	Position 80, 50
+	PlayerDisplay 220, 50, "20 00 00", "80 00 40"
+	MouseWindow 0, 220
+}
+
+ListMenu "EpisodeMenu"
+{
+	NetgameMessage "$NEWGAME"
+	
+	Position 48, 63
+	StaticTextCentered 176, 14, "Select chapter."
+}
+
+ListMenu "SkillMenu"
+{
+	StaticTextCentered 166, 28, "How tough are you?"
+	Position 48, 66
+}
+
+ListMenu "LoadGameMenu"
+{
+	NetgameMessage "If you want to load the game in multiplayer, do it while launching it."
+	StaticTextCentered 90, -20, "Boot-up"
+	Position 80, 54
+	Class "LoadMenu"
+}
+
+ListMenu "SaveGameMenu"
+{
+	StaticTextCentered 90, -20, "Storing Files"
+	Position 60, 54
+	Class "SaveMenu"
+}
+
+OptionMenu "CheatingLikeABunny" {
+
+   control "Fly like a bird!",   "fly"
+   control "GHOST!!!",    "noclip"
+   control "STOP! I HAVE THE POWER OF GOD A N D ANIMAE ON MY SIDE!!",     "God Mode"
+   control "Le Boss 1",     "Summon TheCreation"
+   control "give me e v e r y t h i n g",     "Give All"
+
+}
+
+DefaultOptionMenu
+{
+	Position -15
+}
+
+
+OptionMenu "CustomControls"
+{
+	Title "Control Options"
+	ScrollTop 2
+	StaticTextSwitchable 	"ENTER to change, BACKSPACE to clear", "Press new key for control, ESC cancels.", "ControlMessage"
+	StaticText 	""
+	StaticText "Main Controls", 1
+	StaticText 	""
+	Control 	"Fire",				"+attack"
+	Control 	"Altfire",			"+altattack"
+	Control 	"Reload",			"+reload"
+	StaticText 	""
+	Control 	"Use / Open",		"+use"
+	Control 	"Jump",				"+jump"
+	Control 	"Crouch",			"+crouch"
+	StaticText 	""
+	Control 	"Move forward",			"+forward"
+	Control 	"Move backward",		"+back"
+	Control 	"Strafe left",			"+moveleft"
+	Control 	"Strafe right",			"+moveright"
+	Control 	"Hover up / Swim up",	"+moveup"
+	Control 	"Hover down / Swim down",	"+movedown"
+	StaticText 	""
+}
+
+OptionMenu "OptionsMenuAlone"
+{
+	Title "Options"
+	Submenu "$OPTMNU_CONTROLS",			"CustomizeControls"
+	Submenu "$OPTMNU_MOUSE",			"MouseOptions"
+	SubMenu "Cheaters Room",            "CheatingLikeABunny"
+	StaticText " "
+	Submenu "$OPTMNU_SOUND",			"SoundOptions"
+	Submenu "$OPTMNU_DISPLAY",			"VideoOptions"
+	Submenu "$OPTMNU_VIDEO",			"VideoModeMenu"
+	SafeCommand "$OPTMNU_DEFAULTS",	"reset2defaults"
+	SafeCommand	"$OPTMNU_RESETTOSAVED",	"reset2saved"
+	SubMenu "Advanced", "AdvancedOptionsAlone"
+
+	StaticText " "
+	StaticText "WARNING!!!!", red
+	StaticText "reseting to defaults will reset to GZDOOM's defaults"
+	StaticText "NOT Alone's"
+	StaticText "to reset to Alone's defaults, deleate the file name"
+	StaticText "'Gzdoom-your computer username.ini'"
+	StaticText "doing so will reset to Alone's Defaults"
+}
+
+OptionMenu "AdvancedOptionsAlone"
+{
+    SubMenu "All Engine Options", "OptionsMenu"
+	Command "Open Developer Console",			"menuconsole"
+	
+	StaticText " "
+	StaticText " "
+   	StaticText "WARNING!!!!", red
+	StaticText "The All Engine Menu was only used for changing Gameplay, and not for normal use"
+	StaticText "Using This can change the game in ways That was not intended, and only for dev use"
+
+}

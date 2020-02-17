@@ -1,0 +1,16 @@
+CLEARLOCKS
+
+
+lock 1 Doom {
+
+    Remotemessage "Cant use this without a red key card"
+	message "Ya dont have a red key card"
+    RedKeyCard
+}
+
+lock 2 Doom {
+
+    Remotemessage "Cant use this without a blue key card"
+	message "Ya dont have a blue key card"
+    BlueKeyCard
+}
