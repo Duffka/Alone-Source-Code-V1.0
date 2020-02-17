@@ -1,0 +1,9 @@
+gameinfo {
+dimcolor = "green"
+titlepage = "TITLEPIC"
+titlemusic = "D_INTRO"
+quitmessages = "in this genaraion, bots just keep poping up, SO GET BACK OUT THERE","quiting is for bunny's! wait...","tommy anti-quiter blocked you. mabey...","clasic players","i swear to mighty","i can see you hovering over that yes button, DONT YOU FRICKING DARE","QWQ"
+skyflatname = "F_SKY1"
+menubackbutton = "TOM_BCK"
+IntermissionMusic = "D_INTER"
+}

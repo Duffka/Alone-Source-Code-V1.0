@@ -1,0 +1,9 @@
+GameDefaults {
+
+   SpawnWithWeaponRaised
+   NOIntermission
+   Music = "nullmus"
+   SmoothLighting
+   OldFallingDamage
+   MonsterFallingDamage
+}
