@@ -1,0 +1,54 @@
+ACTOR LeGun : weapon
+{
+	
+	  Decal "BulletChip"
+	  Inventory.PickupMessage "le gun"
+	  Weapon.AmmoUse 1
+	  Weapon.AmmoGive 1
+	  Weapon.AmmoType "TClip"
+	  Obituary "%k was oofed by %o"
+}
+
+
+ACTOR magnum : LeGun 15000 {
+	Decal "BulletChip"
+	Weapon.BobStyle smooth
+	Inventory.PickupMessage "magnum, not a lot...[1]"
+	Weapon.AmmoUse 1
+	Weapon.AmmoGive 15
+	Weapon.AmmoType "TClip"
+	Weapon.SelectionOrder 1
+	Obituary "%k died from a magnum blast by the magnum lord %o"
+	
+	
+	States {
+	
+	Spawn:
+	MGNT G -1
+	STOP
+	
+	Select:
+	MGNT A 1 A_RAISE
+	loop
+	
+	Deselect:
+	MGNT A 1 A_LOWER
+	loop
+	
+	Ready:
+	MGNT A 1 A_WEAPONREADY
+	loop
+	
+	FIRE:
+	MGNT A 0 
+	MGNT B 2
+	MGNT C 2 
+	MGNT A 0 A_PLAYSOUND("Weapons/firemgn",CHAN_WEAPON,0.8)
+	MGNT E 2 A_FireBullets (5.5, 3, 1, 2, "BulletPuff")
+	MGNT FEDCB 2 
+	MGNT A 0 A_REFIRE
+	MGNT A 1
+	goto Ready
+	
+	}
+}

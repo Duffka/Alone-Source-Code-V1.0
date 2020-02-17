@@ -1,0 +1,44 @@
+ACTOR TSHOTGUN : LeGun 15004 {
+
+	Decal "BulletChip"
+	Inventory.PickupMessage "shoty shot shot! it's a fricking sawed-off shotgun! 3 shots at a time! [3]"
+	Weapon.BobStyle alpha
+	Weapon.bobSpeed 1
+	Weapon.AmmoUse 3
+	Weapon.AmmoGive 6
+	Weapon.AmmoType "TShell"
+	Weapon.SelectionOrder 2
+	Obituary "%k died from a blast of 3 shells from %o 's sawed-off"
+	
+	
+	States {
+	
+	Spawn:
+	SHGT A -1
+	STOP
+	
+	Select:
+	SHGR E 1 A_RAISE
+	loop
+	
+	Deselect:
+	SHGR E 1 A_LOWER
+	loop
+	
+	Ready:
+	SHGR E 1 A_WEAPONREADY
+	loop
+	
+	FIRE:
+	SHGF A 6
+	SHGF B 0 A_FIREBULLETS(5, 5, 3, 9, "BulletPuff")
+	SHGF B 0 A_PLAYSOUND("Weapons/fireshotg", CHAN_WEAPON, 0.8)
+	SHGF B 6
+	SHGR A 6
+	SHGR B 6
+	SHGR C 6
+	SHGR D 6
+	goto Ready
+
+	}
+}

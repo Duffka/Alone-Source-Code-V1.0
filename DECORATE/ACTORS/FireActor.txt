@@ -1,0 +1,22 @@
+Actor FireActor 2021 {
+   +solid
+   States{
+   
+     Spawn:
+	 FLME A 4
+	 FLME B 4
+	 FLME C 4
+	 FLME D 4
+	 FLME E 4
+	 FLME F 4
+	 FLME G 4
+	 FLME H 4
+	 FLME I 4
+	 FLME J 4
+	 FLME K 4
+	 FLME L 4
+	 FLME M 4
+	 FLME N 4
+     loop
+  }
+}

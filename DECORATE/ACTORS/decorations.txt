@@ -1,0 +1,91 @@
+ACTOR GibbedMarineExtra : GibbedMarine 12 {}
+
+ACTOR ExplosiveBarrel 15013
+{
+  Health 20
+  Radius 10
+  Height 42
+  +SOLID
+  +SHOOTABLE
+  +NOBLOOD
+  +ACTIVATEMCROSS
+  +DONTGIB
+  +NOICEDEATH
+  +OLDRADIUSDMG
+  DeathSound "world/barrelx"
+  Obituary "$OB_BARREL" // "%o went boom."
+  States
+  {
+  Spawn:
+    BAR1 AB 6
+    Loop
+  Death:
+    BEXP A 5 Bright
+    BEXP B 5 Bright A_Scream
+    BEXP C 5 Bright
+    BEXP D 5 Bright A_Explode
+    BEXP E 10 Bright
+    TNT1 A 1050 Bright A_BarrelDestroy
+    TNT1 A 5 A_Respawn
+    Wait
+  }
+}
+
+ACTOR ShortBlueTorch 15012
+{
+  Radius 16
+  Height 37
+  ProjectilePassHeight -16
+  +SOLID
+  States
+  {
+  Spawn:
+    SMBT ABCD 4 Bright
+    Loop
+  }
+  
+ }
+
+ACTOR BloodyTwitch 15011
+{
+  -SOLID
+  Radius 20
+  Height 68
+  +NOGRAVITY
+  +SPAWNCEILING
+  States
+  {
+  Spawn:
+    GOR1 A 10
+    GOR1 B 15
+    GOR1 C 8
+    GOR1 B 6
+    Loop
+  }
+}
+
+ACTOR TheCreationTest 15018 {
+
+   height 100
+   radius 16
+   +SOLID
+   states {
+    
+	Spawn:
+	CRAT A -1
+	stop
+	
+   }
+
+}
+
+
+ACTOR DeadMarine 15
+{
+  States
+  {
+  Spawn:
+    PLAY N -1
+    Stop
+  }
+}

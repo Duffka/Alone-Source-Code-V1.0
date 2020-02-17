@@ -1,0 +1,55 @@
+ACTOR TClip : AMMO 15003 {
+
+  Inventory.Amount 20
+  Inventory.MaxAmount 100
+  States {
+   
+   Spawn:
+   CLIP A -1
+   STOP
+  }
+
+}
+
+
+ACTOR TShell : AMMO 15008 {
+
+   Inventory.Amount 3
+   Inventory.MaxAmount 100
+   
+   
+   States {
+   
+   Spawn:
+   SHL3 A -1
+   STOP
+  }
+
+}
+
+ACTOR RocketBox : RocketAmmo 15022
+{
+  Inventory.PickupMessage "Picked up a box of rockets."
+  Inventory.Amount 15
+  States
+  {
+  Spawn:
+    BROK A -1
+    Stop
+  }
+}
+
+ACTOR RocketAmmo : Ammo
+{
+  Inventory.PickupMessage "$GOTROCKET" // "Picked up a rocket."
+  Inventory.Amount 1
+  Inventory.MaxAmount 50
+  Ammo.BackpackAmount 1
+  Ammo.BackpackMaxAmount 100
+  States
+  {
+  Spawn:
+    ROCK A -1
+    Stop
+  }
+}

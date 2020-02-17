@@ -1,0 +1,83 @@
+ACTOR microchip : HealthBonus 15001 {
+  Inventory.PickupMessage "Got a MICROCHIP that restores health!"
+    Inventory.Amount 25
+  
+  states {
+    
+	spawn:
+	MCHP A -1
+	STOP
+  }
+}
+
+
+ACTOR Medikit : Health 2012
+{
+  Inventory.Amount 25
+  Inventory.PickupMessage "$GOTMEDIKIT" // "Picked up a medikit."
+  Health.LowMessage 25, "$GOTMEDINEED" // "Picked up a medikit that you REALLY need!"
+  States
+  {
+  Spawn:
+    MEDI A -1
+    Stop
+  }
+}
+
+
+ACTOR HealthBonus : Health 2014
+{
+  +COUNTITEM
+  +INVENTORY.ALWAYSPICKUP
+  Inventory.Amount 1
+  Inventory.MaxAmount 200
+  Inventory.PickupMessage "$GOTHTHBONUS" // "Picked up a health bonus."
+  States
+  {
+  Spawn:
+    BON1 ABCDCB 6
+    Loop
+  }
+}
+
+ACTOR ArmorBonus : BasicArmorPickup 2015
+{
+  Radius 20
+  Height 16
+  Inventory.PickupMessage "$GOTARMBONUS" // "Picked up an armor bonus."
+  Inventory.Icon "ARM1A0"
+  Armor.SaveAmount 1
+  +COUNTITEM
+  +INVENTORY.ALWAYSPICKUP
+  States
+  {
+  Spawn:
+    BON2 ABCDCB 6
+    Loop
+  }
+}
+
+
+
+ACTOR GreenArmor : BasicArmorPickup 2018
+{
+  Radius 20
+  Height 16
+  Inventory.PickupMessage "$GOTARMOR" // "Picked up the armor."
+  Inventory.Icon "ARM1A0"
+  Armor.SavePercent 33.335
+  Armor.SaveAmount 100
+  States
+  {
+  Spawn:
+    ARM1 A 6
+    ARM1 B 7 Bright
+    Loop
+  }
+}
+
+ACTOR BasicArmorPickup : Armor
+{
+  +INVENTORY.AUTOACTIVATE
+  Inventory.MaxAmount 0
+}

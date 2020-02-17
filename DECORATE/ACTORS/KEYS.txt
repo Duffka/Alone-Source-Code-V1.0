@@ -1,0 +1,32 @@
+ACTOR RedKeyCard : key 15005 {
+
+   +FLOATBOB
+   Radius 20
+   Height 32
+   
+   States {
+   
+      Spawn:
+	  RKEY A 10
+	  RKEY B 10
+      loop
+   }
+
+}
+
+
+ACTOR BlueKeyCard : key 15021 {
+
+   +FLOATBOB
+   Radius 20
+   Height 32
+   
+   States {
+   
+      Spawn:
+	  BKEY A 10
+	  BKEY B 10
+      loop
+   }
+
+}

@@ -1,0 +1,40 @@
+Actor RocketLauncherT : Weapon 2020 {
+
+   Weapon.Ammotype "RocketAmmo"
+   Weapon.Ammouse 1
+   Weapon.Ammogive 15
+   Weapon.SelectionOrder 4
+   Inventory.PickupMessage "God bless America! [4]"
+   Tag "$TAG_ROCKETLAUNCHER"
+   DamageType RocketLauncherT
+   Weapon.BobStyle smooth
+  
+
+   
+   
+   States {
+   
+      Spawn:
+	  RCKL E -1
+	  STOP
+	  
+	  Select:
+	  RCKL A 1 A_RAISE
+	  LOOP
+	  
+	  Deselect:
+	  RCKL A 1 A_LOWER
+	  LOOP
+	  
+	  Ready:
+	  RCKL A 1 A_WEAPONREADY
+	  LOOP
+	  
+	  FIRE:
+	  RCKL AB 4
+	  RCKL C 4 A_FIREMISSILE
+	  RCKL DBA 4
+	  Goto Ready
+	  
+   }
+}

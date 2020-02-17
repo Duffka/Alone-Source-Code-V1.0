@@ -1,0 +1,84 @@
+/*
+
+ACTOR TOMMY : DoomPlayer
+{
+      speed 2.0
+      player.weaponslot 1, magnum, magnums
+      player.weaponslot 2, usi, usis
+      player.weaponslot 3, TSHOTGUN
+	  
+	  player.startitem "Clip", 20
+	
+}
+
+
+now zscript, edit: ill just put flash light here
+
+*/
+
+
+
+
+actor FlashLightFlare
+{
+  +NOBLOCKMAP
+  +NOGRAVITY
+  -ALLOWPARTICLES
+  -RANDOMIZE
+  -DONTSPLASH
+  RenderStyle translucent
+  Alpha 0
+  Scale 1
+  Mass 5
+  +NOEXTREMEDEATH
+  +THRUGHOST
+  States
+  {
+  Spawn:
+    TNT1 A 3 
+    stop
+  }
+}
+
+
+ACTOR Flashlight : Weapon
+{
+    Weapon.SelectionOrder 100
+    Inventory.PickupMessage "You got the Flashlight"
+    Tag "Flashlight"
+    States
+    {
+
+    Ready:
+        FLGH A 1 
+        {
+            A_WeaponReady;
+            A_FireBullets(0,0,1,0,"FlashLightFlare");
+        }
+        Loop
+
+    Deselect:
+        FLGH A 1 A_Lower
+        Loop
+
+    Select:
+        FLGH A 1 A_Raise
+        Loop
+
+    Fire:
+        FLGH A 1
+        {
+            A_WeaponReady;
+            A_FireBullets(0,0,1,0,"FlashLightFlare");
+        }
+        Goto Ready
+
+    Flash:
+        Goto LightDone
+
+    Spawn:
+        FLGT A -1
+        Stop
+
+    }
+}

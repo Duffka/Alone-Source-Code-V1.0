@@ -1,0 +1,51 @@
+ACTOR Uzi : LeGun 15007 {
+
+    Decal "BulletChip"
+	Weapon.BobStyle smooth
+	Inventory.PickupMessage "a uzi! uzi it up! [3]"
+	Weapon.AmmoUse 1
+	Weapon.AmmoGive 15
+	Weapon.AmmoType "TClip"
+	Weapon.AmmoType2 "TClip"
+	Weapon.SelectionOrder 3
+	Obituary "%k was uzied up by %o 's uzi"
+
+
+
+   	States {
+	
+	Spawn:
+	UZIT E -1
+	STOP
+	
+	Select:
+	UZIT A 1 A_RAISE
+	loop
+	
+	Deselect:
+	UZIT A 1 A_LOWER
+	loop
+	
+	Ready:
+	UZIT A 1 A_WEAPONREADY
+	loop
+	
+	FIRE:
+	UZIT A 0 A_PLAYSOUND("Weapons/UziFire", CHAN_WEAPON, 0.8)
+	UZIT BC 2 A_FireBullets(5.0, 2.75, -1, 6, "BulletPuff")
+	UZIT A 0 A_REFIRE("FIRE")
+	goto UziReload
+	
+
+	
+	
+	
+	UziReload:
+	UZIT D 10
+	GOTO Ready
+	
+	Flash:
+	UZIT A 2 BRIGHT A_LIGHT1
+	GOTO LightDone
+	}
+}
